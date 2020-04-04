@@ -1,6 +1,7 @@
 {
-  "name": "youshido/graphql",
+  "name": "getpop/graphql-parser",
   "description": "Pure PHP GraphQL",
+  "homepage": "https://github.com/getpop/graphql-parser",
   "license": "MIT",
   "authors": [
     {
