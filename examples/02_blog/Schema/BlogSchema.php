@@ -53,12 +53,13 @@ class BlogSchema extends AbstractSchema
                     // code for creating a new post goes here
                     // we simple use our DataProvider for now
                     $post = DataProvider::getPost(10);
-                    if (!empty($args['post']['title'])) $post['title'] = $args['post']['title'];
+                    if (!empty($args['post']['title'])) {
+                        $post['title'] = $args['post']['title'];
+                    }
 
                     return $post;
                 }
             ]
         ]);
     }
-
 }

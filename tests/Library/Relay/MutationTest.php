@@ -21,11 +21,10 @@ class MutationTest extends \PHPUnit_Framework_TestCase
     {
         $mutation = RelayMutation::buildMutation('ship', [
             'name' => new StringType()
-        ],[
+        ], [
             'id' => new IdType(),
             'name' => new StringType()
-        ], function($source, $args, $info) {
-
+        ], function ($source, $args, $info) {
         });
         $this->assertEquals('ship', $mutation->getName());
     }
@@ -37,8 +36,7 @@ class MutationTest extends \PHPUnit_Framework_TestCase
     {
         RelayMutation::buildMutation('ship', [
             'name' => new StringType()
-        ], new IntType(), function($source, $args, $info) {});
-
+        ], new IntType(), function ($source, $args, $info) {
+        });
     }
-
 }

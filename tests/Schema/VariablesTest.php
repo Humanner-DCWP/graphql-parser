@@ -79,7 +79,8 @@ class VariablesTest extends \PHPUnit_Framework_TestCase
                     ],
                 ],
             ],
-            $processor->getResponseData());
+            $processor->getResponseData()
+        );
     }
 
     /**

@@ -37,11 +37,15 @@ class ProcessorTest extends TestCase
 
         $processor = new Processor($schema);
 
-        $this->assertEquals(['data' => ['currentUser' => 'Alex age 20']],
-            $processor->processPayload('{ currentUser }')->getResponseData());
+        $this->assertEquals(
+            ['data' => ['currentUser' => 'Alex age 20']],
+            $processor->processPayload('{ currentUser }')->getResponseData()
+        );
 
-        $this->assertEquals(['data' => ['currentUser' => 'Alex age 10']],
-            $processor->processPayload('{ currentUser(age:10) }')->getResponseData());
+        $this->assertEquals(
+            ['data' => ['currentUser' => 'Alex age 10']],
+            $processor->processPayload('{ currentUser(age:10) }')->getResponseData()
+        );
     }
 
     public function testNullDefaultValue()
@@ -72,10 +76,14 @@ class ProcessorTest extends TestCase
 
         $processor = new Processor($schema);
 
-        $this->assertEquals(['data' => ['currentUser' => 'Alex age 25']],
-            $processor->processPayload('{ currentUser }')->getResponseData());
+        $this->assertEquals(
+            ['data' => ['currentUser' => 'Alex age 25']],
+            $processor->processPayload('{ currentUser }')->getResponseData()
+        );
 
-        $this->assertEquals(['data' => ['currentUser' => 'Alex age 10']],
-            $processor->processPayload('{ currentUser(age:10) }')->getResponseData());
+        $this->assertEquals(
+            ['data' => ['currentUser' => 'Alex age 10']],
+            $processor->processPayload('{ currentUser(age:10) }')->getResponseData()
+        );
     }
 }

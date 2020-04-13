@@ -16,7 +16,11 @@ class CallableFetcherTest extends \PHPUnit_Framework_TestCase
 {
     public function testMethods()
     {
-        $fetcher = new CallableFetcher(function ($type, $id) { return ['name' => $type . ' Name', 'id' => $id]; }, function ($object) { return $object; });
+        $fetcher = new CallableFetcher(function ($type, $id) {
+            return ['name' => $type . ' Name', 'id' => $id];
+        }, function ($object) {
+            return $object;
+        });
         $this->assertEquals([
             'name' => 'User Name',
             'id'   => 12
@@ -25,5 +29,4 @@ class CallableFetcherTest extends \PHPUnit_Framework_TestCase
         $object = new TestObjectType();
         $this->assertEquals($object, $fetcher->resolveType($object));
     }
-
 }

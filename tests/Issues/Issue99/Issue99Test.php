@@ -22,7 +22,7 @@ class Issue99Test extends \PHPUnit_Framework_TestCase
 
         self::assertTrue(isset($res['data']['items']));
 
-        foreach($res['data']['items'] as $item) {
+        foreach ($res['data']['items'] as $item) {
             self::assertTrue(isset($item['custom']['value']));
             self::assertEquals(self::BUG_NOT_EXISTS_VALUE, $item['custom']['value']);
         }

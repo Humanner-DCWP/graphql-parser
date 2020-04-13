@@ -23,12 +23,15 @@ use Youshido\GraphQL\Parser\Location;
 use Youshido\GraphQL\Parser\Parser;
 use Youshido\GraphQL\Parser\Token;
 
-class TokenizerTestingParser extends Parser {
-    public function initTokenizerForTesting($source) {
+class TokenizerTestingParser extends Parser
+{
+    public function initTokenizerForTesting($source)
+    {
         $this->initTokenizer($source);
     }
 
-    public function getTokenForTesting() {
+    public function getTokenForTesting()
+    {
         return $this->lookAhead;
     }
 }
@@ -86,13 +89,18 @@ GRAPHQL;
 
         $this->assertEquals($parsedData, [
             'queries'            => [
-                new Query('authors', null,
+                new Query(
+                    'authors',
+                    null,
                     [
                         new Argument('category', new Literal('#2', new Location(5, 25)), new Location(5, 14)),
                     ],
                     [
                         new Field('_id', null, [], [], new Location(6, 9)),
-                    ], [], new Location(5, 5)),
+                    ],
+                    [],
+                    new Location(5, 5)
+                ),
             ],
             'mutations'          => [],
             'fragments'          => [],
@@ -102,7 +110,8 @@ GRAPHQL;
         ]);
     }
 
-    private function tokenizeStringContents($graphQLString) {
+    private function tokenizeStringContents($graphQLString)
+    {
         $parser = new TokenizerTestingParser();
         $parser->initTokenizerForTesting('"' . $graphQLString . '"');
 
@@ -112,14 +121,15 @@ GRAPHQL;
 
     public function testEscapedStrings()
     {
-        $this->assertEquals([
-                $this->tokenizeStringContents(""),           
+        $this->assertEquals(
+            [
+                $this->tokenizeStringContents(""),
                 $this->tokenizeStringContents("x"),
                 $this->tokenizeStringContents("\\\""),
-                $this->tokenizeStringContents("\\/"),   
+                $this->tokenizeStringContents("\\/"),
                 $this->tokenizeStringContents("\\f"),
                 $this->tokenizeStringContents("\\n"),
-                $this->tokenizeStringContents("\\r"),         
+                $this->tokenizeStringContents("\\r"),
                 $this->tokenizeStringContents("\\b"),
                 $this->tokenizeStringContents("\\uABCD")
             ],
@@ -130,9 +140,9 @@ GRAPHQL;
                 new Token(Token::TYPE_STRING, 1, 3, '/'),
                 new Token(Token::TYPE_STRING, 1, 3, "\f"),
                 new Token(Token::TYPE_STRING, 1, 3, "\n"),
-                new Token(Token::TYPE_STRING, 1, 3, "\r"),     
-                new Token(Token::TYPE_STRING, 1, 3, sprintf("%c", 8)),         
-                new Token(Token::TYPE_STRING, 1, 7, html_entity_decode("&#xABCD;", ENT_QUOTES, 'UTF-8'))            
+                new Token(Token::TYPE_STRING, 1, 3, "\r"),
+                new Token(Token::TYPE_STRING, 1, 3, sprintf("%c", 8)),
+                new Token(Token::TYPE_STRING, 1, 7, html_entity_decode("&#xABCD;", ENT_QUOTES, 'UTF-8'))
             ]
         );
     }
@@ -447,11 +457,17 @@ GRAPHQL;
 
         $this->assertEquals($parsedStructure, [
             'queries'            => [
-                new Query('test', 'test', [],
+                new Query(
+                    'test',
+                    'test',
+                    [],
                     [
                         new Field('name', null, [], [], new Location(4, 21)),
                         new TypedFragmentReference('UnionType', [new Field('unionName', null, [], [], new Location(6, 25))], [], new Location(5, 28)),
-                    ], [], new Location(3, 23)),
+                    ],
+                    [],
+                    new Location(3, 23)
+                ),
             ],
             'mutations'          => [],
             'fragments'          => [],
@@ -468,13 +484,18 @@ GRAPHQL;
                 'query ($variable: Int){ query ( teas: $variable ) { alias: name } }',
                 [
                     'queries'            => [
-                        new Query('query', null,
+                        new Query(
+                            'query',
+                            null,
                             [
                                 new Argument('teas', new VariableReference('variable', (new Variable('variable', 'Int', false, false, true, new Location(1, 8)))->setUsed(true), new Location(1, 39)), new Location(1, 33)),
                             ],
                             [
                                 new Field('name', 'alias', [], [], new Location(1, 60)),
-                            ], [], new Location(1, 25)),
+                            ],
+                            [],
+                            new Location(1, 25)
+                        ),
                     ],
                     'mutations'          => [],
                     'fragments'          => [],
@@ -906,5 +927,4 @@ GRAPHQL;
         $this->assertNull($var->getDefaultValue()->getValue());
         $this->assertNull($var->getValue()->getValue());
     }
-
 }

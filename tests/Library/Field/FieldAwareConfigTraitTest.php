@@ -66,7 +66,5 @@ class FieldAwareConfigTraitTest extends \PHPUnit_Framework_TestCase
             'id'    => $idField,
             'level' => $levelField,
         ], $config->getFields());
-
     }
-
 }

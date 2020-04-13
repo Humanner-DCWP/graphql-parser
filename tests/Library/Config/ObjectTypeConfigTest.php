@@ -48,6 +48,4 @@ class ObjectTypeConfigTest extends \PHPUnit_Framework_TestCase
         $config            = new ObjectTypeConfig(['name' => 'Test', 'interfaces' => [$testInterfaceType]], null, false);
         $this->assertEquals($config->getInterfaces(), [$testInterfaceType]);
     }
-
-
 }

@@ -29,6 +29,4 @@ class TestUnionType extends AbstractUnionType
     {
         return 'Union collect cars types';
     }
-
-
 }

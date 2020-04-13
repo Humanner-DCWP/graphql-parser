@@ -39,7 +39,6 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $schema->addMutationField('changeUser', ['type' => new TestObjectType(), 'resolve' => function () {
         }]);
         $this->assertEquals(2, count($schema->getMutationType()->getFields()));
-
     }
 
     public function testSchemaWithoutClosuresSerializable()
@@ -138,5 +137,4 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
             ]
         ]]], $result);
     }
-
 }

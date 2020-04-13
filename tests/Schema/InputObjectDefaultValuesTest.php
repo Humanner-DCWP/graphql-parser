@@ -50,8 +50,10 @@ class InputObjectDefaultValuesTest extends \PHPUnit_Framework_TestCase
                             ])
                         ],
                         'resolve'    => function ($source, $args) {
-                            return sprintf('Result with level %s and status %s',
-                                $args['statObject']['level'], $args['statObject']['status']
+                            return sprintf(
+                                'Result with level %s and status %s',
+                                $args['statObject']['level'],
+                                $args['statObject']['status']
                             );
                         },
                     ],
@@ -62,7 +64,7 @@ class InputObjectDefaultValuesTest extends \PHPUnit_Framework_TestCase
                                 'status' => $enumType
                             ]
                         ]),
-                        'resolve' => function() {
+                        'resolve' => function () {
                             return [
                                 'status' => null
                             ];
@@ -96,5 +98,4 @@ class InputObjectDefaultValuesTest extends \PHPUnit_Framework_TestCase
             ]
         ]], $result);
     }
-
 }

@@ -67,7 +67,7 @@ class DeferredQueryBuffer
     {
         if (!array_key_exists($resultId, $this->results)) {
             $query = array_unique(
-              array_reduce($this->buffer, 'array_merge', [])
+                array_reduce($this->buffer, 'array_merge', [])
             );
             sort($query);
             $result = $this->database->query($query);
@@ -101,43 +101,43 @@ class DeferredUserType extends AbstractObjectType
     public function build($config)
     {
         $config->addField(
-          new Field(
-            [
-              'name' => 'name',
-              'type' => new StringType(),
-              'resolve' => function ($value) {
-                  return $value['name'];
-              },
-            ]
-          )
+            new Field(
+                [
+                'name' => 'name',
+                'type' => new StringType(),
+                'resolve' => function ($value) {
+                    return $value['name'];
+                },
+                ]
+            )
         );
 
         $config->addField(
-          new Field(
-            [
-              'name' => 'friends',
-              'type' => new ListType(new DeferredUserType($this->database)),
-              'resolve' => function ($value) {
-                  return new DeferredResolver(
-                    $this->database->add($value['friends'])
-                  );
-              },
-            ]
-          )
+            new Field(
+                [
+                'name' => 'friends',
+                'type' => new ListType(new DeferredUserType($this->database)),
+                'resolve' => function ($value) {
+                    return new DeferredResolver(
+                        $this->database->add($value['friends'])
+                    );
+                },
+                ]
+            )
         );
 
         $config->addField(
-          new Field(
-            [
-              'name' => 'foes',
-              'type' => new ListType(new DeferredUserType($this->database)),
-              'resolve' => function ($value) {
-                  return new DeferredResolver(
-                    $this->database->add($value['foes'])
-                  );
-              },
-            ]
-          )
+            new Field(
+                [
+                'name' => 'foes',
+                'type' => new ListType(new DeferredUserType($this->database)),
+                'resolve' => function ($value) {
+                    return new DeferredResolver(
+                        $this->database->add($value['foes'])
+                    );
+                },
+                ]
+            )
         );
     }
 }
@@ -148,30 +148,30 @@ class DeferredSchema extends AbstractSchema
     public function __construct(DeferredQueryBuffer $buffer)
     {
         $usersField = new Field(
-          [
+            [
             'name' => 'users',
             'type' => new ListType(new DeferredUserType($buffer)),
             'resolve' => function ($value, $args) use ($buffer) {
                 return new DeferredResolver($buffer->add($args['ids']));
             },
-          ]
+            ]
         );
 
         $usersField->addArgument(
-          'ids',
-          [
+            'ids',
+            [
             'type' => new ListType(new StringType()),
-          ]
+            ]
         );
         parent::__construct(
-          [
+            [
             'query' => new ObjectType(
-              [
+                [
                 'name' => 'RootQuery',
                 'fields' => [$usersField],
-              ]
+                ]
             ),
-          ]
+            ]
         );
     }
 
@@ -179,7 +179,6 @@ class DeferredSchema extends AbstractSchema
     public function build(SchemaConfig $config)
     {
     }
-
 }
 
 
@@ -216,28 +215,28 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
         $database = $this->prophesize(DeferredDatabase::class);
 
         $database->query(['a', 'b'])->willReturn(
-          [
+            [
             'a' => ['id' => 'a', 'name' => 'User A'],
             'b' => ['id' => 'b', 'name' => 'User B'],
-          ]
+            ]
         )->shouldBeCalledTimes(1);
 
         $result = $this->query(
-          $query,
-          new DeferredQueryBuffer($database->reveal())
+            $query,
+            new DeferredQueryBuffer($database->reveal())
         );
 
         $database->checkProphecyMethodsPredictions();
 
         $this->assertEquals(
-          [
+            [
             'users' => [
               ['name' => 'User A'],
               ['name' => 'User B'],
             ],
-          ],
-          $result['data'],
-          'Retrieved correct data.'
+            ],
+            $result['data'],
+            'Retrieved correct data.'
         );
     }
 
@@ -259,32 +258,31 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
         $database = $this->prophesize(DeferredDatabase::class);
 
         $database->query(['a', 'b'])->willReturn(
-          [
+            [
             'a' => ['id' => 'a', 'name' => 'User A'],
             'b' => ['id' => 'b', 'name' => 'User B'],
-          ]
+            ]
         )->shouldBeCalledTimes(1);
 
         $result = $this->query(
-          $query,
-          new DeferredQueryBuffer($database->reveal())
+            $query,
+            new DeferredQueryBuffer($database->reveal())
         );
 
         $database->checkProphecyMethodsPredictions();
 
         $this->assertEquals(
-          [
+            [
             'a' => [
               ['name' => 'User A'],
             ],
             'b' => [
               ['name' => 'User B'],
             ],
-          ],
-          $result['data'],
-          'Retrieved correct data.'
+            ],
+            $result['data'],
+            'Retrieved correct data.'
         );
-
     }
 
     /**
@@ -305,27 +303,27 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
         $database = $this->prophesize(DeferredDatabase::class);
 
         $database->query(['a'])->willReturn(
-          [
+            [
             'a' => ['id' => 'a', 'name' => 'User A', 'friends' => ['b', 'c']],
-          ]
+            ]
         )->shouldBeCalledTimes(1);
 
         $database->query(['b', 'c'])->willReturn(
-          [
+            [
             'b' => ['id' => 'b', 'name' => 'User B'],
             'c' => ['id' => 'c', 'name' => 'User C'],
-          ]
+            ]
         );
 
         $result = $this->query(
-          $query,
-          new DeferredQueryBuffer($database->reveal())
+            $query,
+            new DeferredQueryBuffer($database->reveal())
         );
 
         $database->checkProphecyMethodsPredictions();
 
         $this->assertEquals(
-          [
+            [
             'a' => [
               [
                 'name' => 'User A',
@@ -335,9 +333,9 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
                 ],
               ],
             ],
-          ],
-          $result['data'],
-          'Retrieved correct data.'
+            ],
+            $result['data'],
+            'Retrieved correct data.'
         );
     }
 
@@ -371,7 +369,7 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
         $database = $this->prophesize(DeferredDatabase::class);
 
         $database->query(['a', 'b'])->willReturn(
-          [
+            [
             'a' => [
               'id' => 'a',
               'name' => 'User A',
@@ -384,28 +382,28 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
               'friends' => ['a'],
               'foes' => ['c'],
             ],
-          ]
+            ]
         )->shouldBeCalledTimes(1);
 
         $database->query(['a', 'b', 'c', 'd', 'e'])->willReturn(
-          [
+            [
             'a' => ['id' => 'a', 'name' => 'User A'],
             'b' => ['id' => 'b', 'name' => 'User B'],
             'c' => ['id' => 'c', 'name' => 'User C'],
             'd' => ['id' => 'd', 'name' => 'User D'],
             'e' => ['id' => 'e', 'name' => 'User E'],
-          ]
+            ]
         )->shouldBeCalledTimes(1);
 
         $result = $this->query(
-          $query,
-          new DeferredQueryBuffer($database->reveal())
+            $query,
+            new DeferredQueryBuffer($database->reveal())
         );
 
         $database->checkProphecyMethodsPredictions();
 
         $this->assertEquals(
-          [
+            [
             'a' => [
               [
                 'name' => 'User A',
@@ -430,9 +428,9 @@ class DeferredTest extends \PHPUnit_Framework_TestCase
                 ],
               ],
             ],
-          ],
-          $result['data'],
-          'Retrieved data is correct.'
+            ],
+            $result['data'],
+            'Retrieved data is correct.'
         );
     }
 }

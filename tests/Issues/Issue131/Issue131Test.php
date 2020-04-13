@@ -58,7 +58,8 @@ class Issue131Test extends \PHPUnit_Framework_TestCase
             ])
         ]);
         $processor = new Processor($schema);
-        $response  = $processor->processPayload('
+        $response  = $processor->processPayload(
+            '
 mutation ($related_beans: RelatedBeanInputType) {
   createMeeting(name: "Meeting 1", related_beans: $related_beans) {
     id,
@@ -71,7 +72,8 @@ mutation ($related_beans: RelatedBeanInputType) {
                     ["module" => "contacts", "id" => "2a135003-3765-af3f-bc54-55e7497e77aa"],
 
                 ]
-            ])->getResponseData();
+            ]
+        )->getResponseData();
         $this->assertEquals(['data' => ['createMeeting' => [
             'id' => '1',
             'name' => 'Meeting with 2 beans'

@@ -47,5 +47,4 @@ class TestTimeType extends AbstractScalarType
     {
         return 'Representation time in "H:i:s" format';
     }
-
 }

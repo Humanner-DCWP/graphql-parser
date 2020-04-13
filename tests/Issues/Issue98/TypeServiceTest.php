@@ -38,7 +38,6 @@ class DummyObjectWithMagicGet
 
         return 'getbar';
     }
-
 }
 
 class DummyObjectWithMagicCall
@@ -52,4 +51,3 @@ class DummyObjectWithMagicCall
         return 'callbar';
     }
 }
-

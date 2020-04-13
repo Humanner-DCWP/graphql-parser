@@ -59,7 +59,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
                 'fields' => [
                     'posts' => [
                         'type' => new ListType($postType),
-                        'resolve' => function() use ($data) {
+                        'resolve' => function () use ($data) {
                             return $data;
                         }
                     ]
@@ -73,5 +73,4 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         var_dump($res['data']['posts'][0]);
         printf("Test Time: %04f\n", microtime(true) - $time);
     }
-
 }

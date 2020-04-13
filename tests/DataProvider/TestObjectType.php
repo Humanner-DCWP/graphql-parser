@@ -42,12 +42,12 @@ class TestObjectType extends AbstractObjectType
                      'noop' => new IntType()
                  ],
                  'resolve' => function ($value, $args, $info) {
-                   return ['address' => '1234 Street'];
+                    return ['address' => '1234 Street'];
                  }
-             ]
-            )
+             ])
             ->addField(
-                'echo', [
+                'echo',
+                [
                     'type'    => new StringType(),
                     'args'    => [
                         'value' => new NonNullType(new StringType())
@@ -71,5 +71,4 @@ class TestObjectType extends AbstractObjectType
             'name' => 'John'
         ];
     }
-
 }

@@ -296,7 +296,6 @@ TEXT;
                 'name' => ['type' => new IntType()],
             ],
             'resolveType' => function ($type) {
-
             }
         ]);
 
@@ -324,7 +323,6 @@ TEXT;
             'name'        => 'UnionType',
             'types'       => [$object1, $object2],
             'resolveType' => function () {
-
             }
         ]);
 
@@ -432,5 +430,4 @@ TEXT;
         $responseData = $processor->getResponseData();
         $this->assertArrayNotHasKey('errors', $responseData);
     }
-
 }

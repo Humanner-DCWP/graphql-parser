@@ -50,7 +50,6 @@ class CourtReservation extends AbstractObjectType
     {
         return [new ReservationInterface()];
     }
-
 }
 
 class ClassReservation extends AbstractObjectType
@@ -82,7 +81,6 @@ class ReservationInterface extends AbstractInterfaceType
             'id' => new IdType()
         ]);
     }
-
 }
 
 class FragmentsTest extends \PHPUnit_Framework_TestCase
@@ -252,5 +250,4 @@ class FragmentsTest extends \PHPUnit_Framework_TestCase
         $expected = ['data' => ['User1' => ['fullName' => 'Alex'], 'User2' => ['fullName' => 'Alex']]];
         $this->assertEquals($expected, $result);
     }
-
 }

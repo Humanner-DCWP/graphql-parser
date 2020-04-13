@@ -80,7 +80,9 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
             ]
         ]);
 
-        $finalConfig = new TestConfig(['name' => $name . 'final', 'resolve' => function () { return []; }], $object, true);
+        $finalConfig = new TestConfig(['name' => $name . 'final', 'resolve' => function () {
+            return [];
+        }], $object, true);
         $this->assertEquals($finalConfig->getType(), null);
 
         $rules['resolve']['required'] = true;
@@ -136,5 +138,4 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         ]);
         ConfigValidator::getInstance()->assertValidConfig($object->getConfig());
     }
-
 }

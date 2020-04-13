@@ -26,8 +26,10 @@ class InterfaceTypeTest extends \PHPUnit_Framework_TestCase
         $nameField = new Field(['name' => 'name', 'type' => new StringType()]);
         $nameField->getName();
 
-        $this->assertEquals(['name' => $nameField],
-            $interface->getFields());
+        $this->assertEquals(
+            ['name' => $nameField],
+            $interface->getFields()
+        );
 
         $object = new ObjectType([
             'name'       => 'Test',
@@ -66,5 +68,4 @@ class InterfaceTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('ownField', $extendedType->getFields());
         $this->assertArrayHasKey('name', $extendedType->getFields());
     }
-
 }

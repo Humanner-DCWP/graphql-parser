@@ -14,7 +14,8 @@ exports.CookieJar   = CookieJar;
 
 exports.fetchUrl = fetchUrl;
 
-function FetchStream(url, options) {
+function FetchStream(url, options)
+{
     Stream.call(this);
 
     options = options || {};
@@ -123,7 +124,7 @@ FetchStream.prototype.parseUrl = function (url) {
             path:               urlparts.pathname + (urlparts.search || "") || "/",
             method:             this.options.method,
             rejectUnauthorized: this.options.rejectUnauthorized
-        };
+    };
 
     if ("agent" in this.options) {
         urloptions.agent = this.options.agent;
@@ -293,7 +294,9 @@ FetchStream.prototype._runStream = function (url_data, url) {
                 } else {
                     maxlen = chunk.length;
                 }
-                if (maxlen <= 0)return;
+                if (maxlen <= 0) {
+                    return;
+                }
 
                 curlen += Math.min(maxlen, chunk.length);
 
@@ -362,7 +365,8 @@ FetchStream.prototype._runStream = function (url_data, url) {
     }
 }
 
-function fetchUrl(url, options, callback) {
+function fetchUrl(url, options, callback)
+{
     if (!callback && typeof options == "function") {
         callback = options;
         options  = undefined;
@@ -430,7 +434,8 @@ function fetchUrl(url, options, callback) {
     });
 }
 
-function _parseContentType(str) {
+function _parseContentType(str)
+{
     if (!str) {
         return {};
     }
@@ -453,7 +458,8 @@ function _parseContentType(str) {
     }
 }
 
-function _findHTMLCharset(htmlbuffer) {
+function _findHTMLCharset(htmlbuffer)
+{
 
     var body = htmlbuffer.toString("ascii"),
         input, meta, charset;

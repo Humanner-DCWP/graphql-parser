@@ -47,7 +47,6 @@ class FieldTest extends \PHPUnit_Framework_TestCase
 
         $fieldWithResolve->setType(new IntType());
         $this->assertEquals(new StringType(), $fieldWithResolve->getType()->getName());
-
     }
 
     public function testObjectFieldCreation()
@@ -111,5 +110,4 @@ class FieldTest extends \PHPUnit_Framework_TestCase
             ]
         ];
     }
-
 }

@@ -42,13 +42,9 @@ class ScalarExtendTypeTest extends \PHPUnit_Framework_TestCase
                         ],
                     ]
                 ])
-            ])
-        );
+            ]));
 
         $processor->processPayload('{ latestReport { title, time} }');
         $this->assertEquals(['data' => ['latestReport' => ['title' => 'Accident #1', 'time' => '13:30:12']]], $processor->getResponseData());
-
-
     }
-
 }

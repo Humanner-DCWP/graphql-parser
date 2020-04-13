@@ -47,5 +47,4 @@ class NonNullTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($nonNullType->parseValue($testArray), '');
         $this->assertEquals($nonNullType->resolve($testArray), $testArray);
     }
-
 }

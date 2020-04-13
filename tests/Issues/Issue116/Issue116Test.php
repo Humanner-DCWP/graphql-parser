@@ -61,7 +61,8 @@ class Issue116Test extends \PHPUnit_Framework_TestCase
             ])
         ]);
         $processor = new Processor($schema);
-        $response  = $processor->processPayload('
+        $response  = $processor->processPayload(
+            '
 query ($size: Int) {
   connections(first: 0) {
     pageInfo {
@@ -72,7 +73,8 @@ query ($size: Int) {
 }',
             [
                 'size' => 2,
-            ])->getResponseData();
+            ]
+        )->getResponseData();
         $this->assertEquals(['data' => ['connections' => [
             'pageInfo' => [
                 'totalEdges' => 10,

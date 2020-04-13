@@ -48,6 +48,4 @@ class TestSchema extends AbstractSchema
             ]
         ]);
     }
-
-
 }

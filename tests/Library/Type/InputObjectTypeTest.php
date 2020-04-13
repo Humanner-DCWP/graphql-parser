@@ -293,6 +293,4 @@ class InputObjectTypeTest extends \PHPUnit_Framework_TestCase
             $response
         );
     }
-
-
 }

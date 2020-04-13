@@ -19,6 +19,4 @@ class PostInputType extends AbstractInputObjectType
             ->addField('title', new NonNullType(new StringType()))
             ->addField('summary', new StringType());
     }
-
-
 }

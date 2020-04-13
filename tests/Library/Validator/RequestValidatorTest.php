@@ -88,7 +88,9 @@ class RequestValidatorTest extends \PHPUnit_Framework_TestCase
             [
                 new Request([
                     'queries'            => [
-                        new Query('test', null,
+                        new Query(
+                            'test',
+                            null,
                             [
                                 new Argument('test', new VariableReference('test', null, new Location(1, 1)), new Location(1, 1))
                             ],
@@ -112,7 +114,7 @@ class RequestValidatorTest extends \PHPUnit_Framework_TestCase
                             new Argument('test2', new VariableReference('test2', $variable2, new Location(1, 1)), new Location(1, 1)),
                         ], [
                             new Field('test', null, [], [], new Location(1, 1))
-                        ], [], new Location(1,1))
+                        ], [], new Location(1, 1))
                     ],
                     'variables'          => [
                         $variable1,
@@ -127,5 +129,4 @@ class RequestValidatorTest extends \PHPUnit_Framework_TestCase
             ]
         ];
     }
-
 }

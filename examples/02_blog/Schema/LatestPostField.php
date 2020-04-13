@@ -27,6 +27,4 @@ class LatestPostField extends AbstractField
             "summary" => "This post describes a new approach to create and maintain APIs",
         ];
     }
-
-
 }

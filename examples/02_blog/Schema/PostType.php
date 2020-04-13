@@ -33,12 +33,14 @@ class PostType extends AbstractObjectType
                 }
             ])
             ->addField(
-                'title', [
+                'title',
+                [
                     'type'  => new NonNullType(new StringType()),
                     'args'  => [
                         'truncated' => new BooleanType()
                     ],
-                ])
+                ]
+            )
             ->addField('status', new PostStatus())
             ->addField('summary', new StringType())
             ->addField('likeCount', new IntType());

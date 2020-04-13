@@ -26,5 +26,4 @@ class TestEnumType extends AbstractEnumType
             ]
         ];
     }
-
 }

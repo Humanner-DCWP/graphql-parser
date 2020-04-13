@@ -55,7 +55,6 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['data' => [
             'me' => ['name' => 'John']
         ]], $processor->getResponseData());
-
     }
 
     public function testNestedVariables()

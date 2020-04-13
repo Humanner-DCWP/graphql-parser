@@ -218,5 +218,4 @@ class NonNullableTest extends \PHPUnit_Framework_TestCase
             ]
         ];
     }
-
 }

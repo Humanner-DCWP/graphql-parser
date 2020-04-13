@@ -18,5 +18,4 @@ class StarWarsSchema extends AbstractSchema
     {
         $config->setQuery(new StarWarsQueryType());
     }
-
 }

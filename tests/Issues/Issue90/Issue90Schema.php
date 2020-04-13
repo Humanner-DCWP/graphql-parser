@@ -55,5 +55,4 @@ class Issue90Schema extends AbstractSchema
             ])
         );
     }
-
 }

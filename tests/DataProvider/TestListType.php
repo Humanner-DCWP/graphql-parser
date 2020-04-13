@@ -18,6 +18,4 @@ class TestListType extends AbstractListType
     {
         return new StringType();
     }
-
-
 }

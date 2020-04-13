@@ -127,5 +127,4 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
         $mutation = new TestMutationObjectType();
         $this->assertEquals(new StringType(), $mutation->getType());
     }
-
 }

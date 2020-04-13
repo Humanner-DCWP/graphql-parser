@@ -31,7 +31,8 @@ class InterfaceTypeConfigTest extends \PHPUnit_Framework_TestCase
     public function testConfigNoFields()
     {
         ConfigValidator::getInstance()->assertValidConfig(
-            new InterfaceTypeConfig(['name' => 'Test', 'resolveType' => function () { }], null, true)
+            new InterfaceTypeConfig(['name' => 'Test', 'resolveType' => function () {
+            }], null, true)
         );
     }
 
@@ -75,6 +76,4 @@ class InterfaceTypeConfigTest extends \PHPUnit_Framework_TestCase
         ], $testInterface, false);
         $this->assertEquals($interfaceConfigWithNoResolve->resolveType($object), $object);
     }
-
-
 }

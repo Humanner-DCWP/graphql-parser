@@ -56,7 +56,8 @@ class TypeUtilitiesTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(TypeService::isAbstractType('invalid type'));
     }
 
-    public function testGetPropertyValue() {
+    public function testGetPropertyValue()
+    {
         $arrayData = (new TestObjectType())->getData();
 
         // Test with arrays

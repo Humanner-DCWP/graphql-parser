@@ -57,5 +57,4 @@ class CharacterInterface extends AbstractInterfaceType
 
         return null;
     }
-
 }

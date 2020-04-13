@@ -33,7 +33,6 @@ class EnumTypeTest extends \PHPUnit_Framework_TestCase
             'values' => []
         ]);
         ConfigValidator::getInstance()->assertValidConfig($enumField->getConfig());
-
     }
 
     /**
@@ -137,5 +136,4 @@ class EnumTypeTest extends \PHPUnit_Framework_TestCase
         $testEnumType = new TestEnumType();
         $this->assertEquals('TestEnum', $testEnumType->getName());
     }
-
 }

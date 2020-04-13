@@ -39,5 +39,4 @@ class SchemaDirectivesListTest extends \PHPUnit_Framework_TestCase
         $directiveList = new SchemaDirectivesList();
         $directiveList->addDirectives("foobar");
     }
-
 }

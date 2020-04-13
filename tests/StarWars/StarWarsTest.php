@@ -40,7 +40,8 @@ class StarWarsTest extends \PHPUnit_Framework_TestCase
                 human(id: $someId) {
                     name
                 }
-            }', ['someId' => 1]
+            }',
+            ['someId' => 1]
         );
 
         $data = $processor->getResponseData();

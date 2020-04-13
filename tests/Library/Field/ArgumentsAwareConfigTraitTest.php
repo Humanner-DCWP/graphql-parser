@@ -60,7 +60,5 @@ class ArgumentsAwareConfigTraitTest extends \PHPUnit_Framework_TestCase
             'id'    => new InputField(['name' => 'id', 'type' => new IntType()]),
             'level' => new InputField(['name' => 'level', 'type' => new IntType()]),
         ], $config->getArguments());
-
     }
-
 }

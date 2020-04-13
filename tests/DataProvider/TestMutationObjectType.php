@@ -24,6 +24,4 @@ class TestMutationObjectType extends AbstractMutationObjectType
     {
         $this->addArgument('increment', new IntType());
     }
-
-
 }

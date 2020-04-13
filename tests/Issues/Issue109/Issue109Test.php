@@ -11,7 +11,8 @@ class Issue109Test extends \PHPUnit_Framework_TestCase
     {
         $schema    = new Issue109Schema();
         $processor = new Processor($schema);
-        $response  = $processor->processPayload('
+        $response  = $processor->processPayload(
+            '
 query ($postId: Int, $commentId: Int) { 
     latestPost(id: $postId) { 
         id(comment_id: $commentId),
@@ -23,7 +24,8 @@ query ($postId: Int, $commentId: Int) {
             [
                 'postId'    => 1,
                 'commentId' => 100
-            ])->getResponseData();
+            ]
+        )->getResponseData();
         $this->assertEquals(['data' => ['latestPost' => [
             'id'       => 1,
             'comments' => [

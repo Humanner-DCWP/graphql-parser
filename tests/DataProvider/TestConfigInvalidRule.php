@@ -15,5 +15,4 @@ class TestConfigInvalidRule extends AbstractConfig
             'invalidRuleField' => ['type' => TypeService::TYPE_ANY, 'invalid rule' => true]
         ];
     }
-
 }

@@ -24,6 +24,4 @@ class TestInterfaceType extends AbstractInterfaceType
     {
         $config->addField('name', new StringType());
     }
-
-
 }

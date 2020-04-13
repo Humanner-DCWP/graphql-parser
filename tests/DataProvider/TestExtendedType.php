@@ -20,6 +20,4 @@ class TestExtendedType extends AbstractObjectType
         $config->applyInterface(new TestInterfaceType())
             ->addField('ownField', new StringType());
     }
-
-
 }

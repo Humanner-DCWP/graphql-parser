@@ -21,5 +21,4 @@ class TestConfig extends AbstractConfig
             'resolve' => ['type' => TypeService::TYPE_CALLABLE, 'final' => true],
         ];
     }
-
 }

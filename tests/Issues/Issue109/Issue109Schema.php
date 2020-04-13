@@ -67,5 +67,4 @@ class Issue109Schema extends AbstractSchema
             ])
         );
     }
-
 }

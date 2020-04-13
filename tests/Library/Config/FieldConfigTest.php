@@ -31,5 +31,4 @@ class FieldConfigTest extends \PHPUnit_Framework_TestCase
         $resolveFunction = $fieldConfig->getResolveFunction();
         $this->assertEquals('John', $resolveFunction([]));
     }
-
 }

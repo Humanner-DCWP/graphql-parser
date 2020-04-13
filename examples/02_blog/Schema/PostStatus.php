@@ -23,5 +23,4 @@ class PostStatus extends AbstractEnumType
             ]
         ];
     }
-
 }

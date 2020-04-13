@@ -55,5 +55,4 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($connection->hasField('pageInfo'));
         $this->assertTrue($connection->hasField('edges'));
     }
-
 }

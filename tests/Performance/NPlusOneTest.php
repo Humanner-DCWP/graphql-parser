@@ -78,5 +78,4 @@ class NPlusOneTest extends \PHPUnit_Framework_TestCase
         $data = $processor->processPayload('{ posts { id, title, author { id, name } } }')->getResponseData();
         $this->assertNotEmpty($data['data']['posts'][0]['author']);
     }
-
 }

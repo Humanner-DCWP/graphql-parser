@@ -13,7 +13,7 @@ class Issue171Test extends \PHPUnit_Framework_TestCase
         $processor->processPayload($this->getIntrospectionQuery(), []);
         $resp = $processor->getResponseData();
 
-        $enumTypes = array_filter($resp['data']['__schema']['types'], function($type){
+        $enumTypes = array_filter($resp['data']['__schema']['types'], function ($type) {
             return ($type['kind'] === 'ENUM');
         });
 

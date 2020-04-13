@@ -137,5 +137,4 @@ class TestScalarDataProvider
             [null, null, true],
         ];
     }
-
 }

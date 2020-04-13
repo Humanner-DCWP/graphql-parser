@@ -33,7 +33,6 @@ class ScalarTypeTest extends \PHPUnit_Framework_TestCase
             $this->assertNull($scalarType->getConfig());
 
             foreach (call_user_func(['Youshido\Tests\DataProvider\TestScalarDataProvider', $testDataMethod]) as list($data, $serialized, $isValid)) {
-
                 $this->assertSerialization($scalarType, $data, $serialized);
                 $this->assertParse($scalarType, $data, $serialized, $typeName);
 
@@ -50,7 +49,6 @@ class ScalarTypeTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals('Configuration problem with type invalid type', $e->getMessage());
         }
         $this->assertEquals('String', (string)new StringType());
-
     }
 
     public function testDateTimeType()

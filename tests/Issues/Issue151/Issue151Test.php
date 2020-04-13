@@ -84,6 +84,5 @@ fragment UnitFragment on Union {
     }
 }
         ')->getResponseData();
-
     }
 }

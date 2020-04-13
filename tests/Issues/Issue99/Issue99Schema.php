@@ -39,7 +39,7 @@ class Issue99Schema extends AbstractSchema
                                             ]))
                                         ]
                                     ],
-                                    'resolve' => function($source, $args) {
+                                    'resolve' => function ($source, $args) {
                                         $x = isset($args['argX']['x']) ? $args['argX']['x'] : Issue99Test::BUG_EXISTS_VALUE;
 
                                         return [

@@ -37,5 +37,4 @@ class HumanType extends AbstractObjectType
     {
         return [new CharacterInterface()];
     }
-
 }

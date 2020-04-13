@@ -19,5 +19,4 @@ class TestInputObjectType extends AbstractInputObjectType
     {
         $config->addField('name', new NonNullType(new StringType()));
     }
-
 }

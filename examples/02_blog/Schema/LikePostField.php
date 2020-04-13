@@ -35,6 +35,4 @@ class LikePostField extends AbstractField
     {
         $config->addArgument('id', new NonNullType(new IntType()));
     }
-
-
 }

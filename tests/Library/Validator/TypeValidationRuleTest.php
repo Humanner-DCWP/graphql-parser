@@ -55,7 +55,8 @@ class TypeValidationRuleTest extends \PHPUnit_Framework_TestCase
             [TypeService::TYPE_ANY_OBJECT, new StringType()],
             [TypeService::TYPE_ANY_OBJECT, null, false],
 
-            [TypeService::TYPE_CALLABLE, function () { }],
+            [TypeService::TYPE_CALLABLE, function () {
+            }],
             [TypeService::TYPE_CALLABLE, null, false],
 
             [TypeService::TYPE_BOOLEAN, true],
@@ -106,5 +107,4 @@ class TypeValidationRuleTest extends \PHPUnit_Framework_TestCase
 
         ];
     }
-
 }

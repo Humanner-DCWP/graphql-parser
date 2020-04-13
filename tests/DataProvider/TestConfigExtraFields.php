@@ -23,6 +23,4 @@ class TestConfigExtraFields extends AbstractConfig
             'name' => ['type' => TypeService::TYPE_ANY, 'required' => true]
         ];
     }
-
-
 }
