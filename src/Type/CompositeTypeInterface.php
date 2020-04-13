@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Youshido\GraphQL\Type;
 /*
  * This file is a part of GraphQL project.

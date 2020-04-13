@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Youshido\GraphQL\Execution\Container;
 
 interface ContainerInterface
