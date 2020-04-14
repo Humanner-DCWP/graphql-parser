@@ -1,1 +1,6 @@
-# nothing here for now
+parameters:
+	level: 5
+	paths:
+		- src
+		- tests
+        
