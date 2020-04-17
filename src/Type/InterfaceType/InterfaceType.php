@@ -1,6 +1,4 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Date: 12.05.16
  *
